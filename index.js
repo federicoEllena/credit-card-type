@@ -81,7 +81,7 @@ function creditCardType(cardNumber) {
   });
 
   bestMatch = findBestMatch(results);
-  console.log(` bestMatch ${bestMatch}`)
+  console.log(` bestMatch ${JSON.stringify(bestMatch)}`)
 
   if (bestMatch) {
     return [bestMatch];
@@ -104,6 +104,7 @@ creditCardType.addCard = function (config) {
   var existingCardPosition = getCardPosition(config.type, true);
   console.log(`existing card position: ${existingCardPosition}`)
   customCards[config.type] = config;
+  console.log(`${customCards[config.type]}`)
 
   if (existingCardPosition === -1) {
     console.log(`${config.type} card found!`)
