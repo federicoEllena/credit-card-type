@@ -64,13 +64,11 @@ function getCardPosition(name, ignoreErrorForNotExisting) {
 function creditCardType(cardNumber) {
   var bestMatch;
   var results = [];
-  console.log(`credit card type function`)
   if (!isValidInputType(cardNumber)) {
     return [];
   }
 
   if (cardNumber.length === 0) {
-    console.log('test order')
     return getAllCardTypes(testOrder);
   }
 
@@ -81,7 +79,6 @@ function creditCardType(cardNumber) {
   });
 
   bestMatch = findBestMatch(results);
-  console.log(` bestMatch ${JSON.stringify(bestMatch)}`)
 
   if (bestMatch) {
     return [bestMatch];
@@ -102,12 +99,9 @@ creditCardType.removeCard = function (name) {
 
 creditCardType.addCard = function (config) {
   var existingCardPosition = getCardPosition(config.type, true);
-  console.log(`existing card position: ${existingCardPosition}`)
   customCards[config.type] = config;
-  console.log(`${customCards[config.type]}`)
 
   if (existingCardPosition === -1) {
-    console.log(`${config.type} card found!`)
     testOrder.push(config.type);
   }
 };
