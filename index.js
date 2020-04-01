@@ -64,12 +64,13 @@ function getCardPosition(name, ignoreErrorForNotExisting) {
 function creditCardType(cardNumber) {
   var bestMatch;
   var results = [];
-
+  console.log(`credit card type function`)
   if (!isValidInputType(cardNumber)) {
     return [];
   }
 
   if (cardNumber.length === 0) {
+    console.log('test order')
     return getAllCardTypes(testOrder);
   }
 
@@ -80,6 +81,7 @@ function creditCardType(cardNumber) {
   });
 
   bestMatch = findBestMatch(results);
+  console.log(` bestMatch ${bestMatch}`)
 
   if (bestMatch) {
     return [bestMatch];
