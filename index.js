@@ -100,10 +100,11 @@ creditCardType.removeCard = function (name) {
 
 creditCardType.addCard = function (config) {
   var existingCardPosition = getCardPosition(config.type, true);
-
+  console.log(`existing card position: ${existingCardPosition}`)
   customCards[config.type] = config;
 
   if (existingCardPosition === -1) {
+    console.log(`${config.type} card found!`)
     testOrder.push(config.type);
   }
 };
